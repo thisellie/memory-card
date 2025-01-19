@@ -5,7 +5,7 @@ export default function Card({ card, handleClick }) {
   
   return (
     <div className="card" key={card.id} onClick={handleClick}>
-      <img alt="card" src={card.image} />
+      <img src={card.image} />
       <div className="card-details">
         <h3>{card.name}</h3>
         <p>by {card.artist}</p>
