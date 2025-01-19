@@ -1,10 +1,7 @@
 import PropTypes from 'prop-types'
 import '../styles/Card.css'
 
-export default function Card({ card }) {
-  function handleClick() {
-    console.log(`You clicked on ${card.name} by ${card.artist}`)
-  }
+export default function Card({ card, handleClick }) {
   
   return (
     <div className="card" key={card.id} onClick={handleClick}>
@@ -23,5 +20,6 @@ Card.propTypes = {
     image: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     artist: PropTypes.string.isRequired,
-  }).isRequired, 
+  }).isRequired,
+  handleClick: PropTypes.func.isRequired,
 }
