@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import './App.css'
 import Nav from './components/Nav'
 import Card from './components/Card'
+import Footer from './components/Footer'
 
 const clientId = import.meta.env.VITE_CLIENT_ID
 const clientSecret = import.meta.env.VITE_CLIENT_SECRET
@@ -57,7 +58,7 @@ function App() {
           id: album.id,
           image: album.images[0].url,
           name: album.name,
-          artist: album.artists[0].name,
+          artist: album.artists.map((artist) => artist.name).join(', '),
         }));
 
         setAlbumCovers(albumCovers);
@@ -87,6 +88,7 @@ function App() {
 
     // handle game logic
     if (clickedAlbums.includes(id)) {
+
       if (score > topScore) setTopScore(score);
 
       setScore(0);
@@ -106,6 +108,7 @@ function App() {
           <Card key={albumCover.id} card={albumCover} handleClick={() => handleClick(albumCover.id)} />
         ))}
       </main>
+      <Footer />
     </>
   )
 }

@@ -11,3 +11,9 @@ main {
   gap: 1em;
   flex: 1;
 }
+
+@media screen and (max-width: 425px) {
+  main {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+}
